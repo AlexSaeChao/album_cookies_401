@@ -1,6 +1,15 @@
-package com.java401.AlbumCookies401.classes;
+package com.java401.AlbumCookies401.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String title;
     String artist;
     int songCount;
@@ -16,6 +25,17 @@ public class Album {
 //        this.imageURL = imageURL;
 //    }
 
+    protected Album() {
+
+    }
+
+    public Album(Long id, String title, String artist, int songCount, int songLength) {
+        this.id = id;
+        this.title = title;
+        this.artist = artist;
+        this.songCount = songCount;
+        this.songLength = songLength;
+    }
 
     public Album(String title, String artist, int songCount, int songLength) {
         this.title = title;
@@ -23,6 +43,7 @@ public class Album {
         this.songCount = songCount;
         this.songLength = songLength;
     }
+
 
     public String getTitle() {
         return title;

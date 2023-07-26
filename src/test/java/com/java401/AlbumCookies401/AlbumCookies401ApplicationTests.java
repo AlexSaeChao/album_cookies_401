@@ -1,6 +1,6 @@
 package com.java401.AlbumCookies401;
 
-import com.java401.AlbumCookies401.classes.Album;
+import com.java401.AlbumCookies401.models.Album;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
