@@ -1,24 +1,25 @@
 package com.java401.AlbumCookies401.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String title;
+    String albumTitle;
     String artist;
-    int songCount;
-    int songLength;
+    Integer songCount;
+    Integer songLength;
     public String imageURL;
 
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<Album> albumList;
 
-//    public Album(String title, String artist, int songCount, int songLength, String imageURL) {
-//        this.title = title;
+//    public Album(String albumTitle, String artist, int songCount, int songLength, String imageURL) {
+//        this.albumTitle = albumTitle;
 //        this.artist = artist;
 //        this.songCount = songCount;
 //        this.songLength = songLength;
@@ -30,8 +31,8 @@ public class Album {
     }
 
 
-    public Album(String title, String artist, int songCount, int songLength) {
-        this.title = title;
+    public Album(String albumTitle, String artist, int songCount, int songLength) {
+        this.albumTitle = albumTitle;
         this.artist = artist;
         this.songCount = songCount;
         this.songLength = songLength;
@@ -39,11 +40,11 @@ public class Album {
 
 
     public String getTitle() {
-        return title;
+        return albumTitle;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.albumTitle = title;
     }
 
     public String getArtist() {
@@ -77,10 +78,11 @@ public class Album {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
     @Override
     public String toString() {
         return "Album{" +
-                "title='" + title + '\'' +
+                "albumTitle='" + albumTitle + '\'' +
                 ", artist='" + artist + '\'' +
                 ", songCount=" + songCount +
                 ", songLength=" + songLength +

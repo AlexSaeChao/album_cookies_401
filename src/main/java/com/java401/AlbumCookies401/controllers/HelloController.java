@@ -1,7 +1,7 @@
 package com.java401.AlbumCookies401.controllers;
 
 import com.java401.AlbumCookies401.models.Album;
-import com.java401.AlbumCookies401.repostories.AlbumCookiesRepository;
+import com.java401.AlbumCookies401.repostories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +17,11 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    AlbumCookiesRepository albumCookiesRepository;
+    SongRepository albumCookiesRepository;
 
     @GetMapping("/")
     public String getSplashPage() {
-        return "splash";
+        return "album.html";
     }
 
 
@@ -45,8 +45,8 @@ public class HelloController {
     }
 
     @PostMapping("/album") // Adjust the endpoint to match the form action
-    public RedirectView addAlbumFromForm(String title, String artist, Integer songCount, Integer songLength) {
-        Album newAlbum = new Album(title, artist, songCount, songLength);
+    public RedirectView addAlbumFromForm(String albumTitle, String artist, Integer songCount, Integer songLength) {
+        Album newAlbum = new Album(albumTitle, artist, songCount, songLength);
         albumCookiesRepository.save(newAlbum);
         return new RedirectView("/album"); // Redirect to the correct endpoint after adding the album
     }
