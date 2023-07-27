@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Albums!</title>
@@ -14,7 +14,6 @@
             <strong>Artist:</strong> <span th:text="${album.artist}"></span><br>
             <strong>Song Count:</strong> <span th:text="${album.songCount}"></span><br>
             <strong>Length (seconds):</strong> <span th:text="${album.songLength}"></span><br>
-            <!--            <strong>Image:</strong> <a th:href="${album.imageUrl}" th:text="${album.imageURL}"></a><br>-->
         </li>
         <br>
     </ul>

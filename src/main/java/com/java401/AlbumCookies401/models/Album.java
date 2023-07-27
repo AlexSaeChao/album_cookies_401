@@ -29,13 +29,6 @@ public class Album {
 
     }
 
-    public Album(Long id, String title, String artist, int songCount, int songLength) {
-        this.id = id;
-        this.title = title;
-        this.artist = artist;
-        this.songCount = songCount;
-        this.songLength = songLength;
-    }
 
     public Album(String title, String artist, int songCount, int songLength) {
         this.title = title;
@@ -84,7 +77,6 @@ public class Album {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-
     @Override
     public String toString() {
         return "Album{" +
