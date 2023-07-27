@@ -5,5 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface AlbumCookiesRepository extends JpaRepository<Album, Long> {
-    public Album findByTitle(String title);
+    public static Album findByAlbumTitle(String albumTitle) {
+        return null;
+    }
+
 }
