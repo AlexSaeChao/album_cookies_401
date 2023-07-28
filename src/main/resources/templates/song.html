@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Album Cookies Song Page!</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div>
+    <h1>Welcome to my Album Cookie Page</h1>
+
+    <main class="container">
+        <h1 th:text="${album.albumTitle}">ALBUM TITLE</h1>
+        <ul>
+            <li th:text="Number of songs + ${album.songCount}"></li>
+            <!--  Lets show all the songs for each album-->
+            <div>Songs</div>
+            <ul th:each="song : ${album.song}">
+                <li th:text="'name: ' + ${employee.name}"></li>
+                <li th:text="'pay: ' + ${employee.payPerHour}"></li>
+                <li th:text="'stand: ' + ${employee.stand.name}"></li>
+                <p>---------</p>
+            </ul>
+            <form action="/song/add" method="POST">
+                <fieldset>
+                    <legend>Add employee to this store</legend>
+                    <label>Employee Name</label>
+                    <input type="text" name="name">
+                    <lable>Pay</lable>
+                    <input type="text" name="payPerHour">
+                    <input type="hidden" name="standName" th:value="${stand.name}">
+                    <input type="submit" value="add employee to stand">
+                </fieldset>
+            </form>
+        </ul>
+    </main>
+</div>
+</body>
+</html>

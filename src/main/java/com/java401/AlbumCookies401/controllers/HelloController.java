@@ -1,6 +1,7 @@
 package com.java401.AlbumCookies401.controllers;
 
 import com.java401.AlbumCookies401.models.Album;
+import com.java401.AlbumCookies401.repostories.AlbumCookiesRepository;
 import com.java401.AlbumCookies401.repostories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    SongRepository albumCookiesRepository;
+    AlbumCookiesRepository albumCookiesRepository;
 
     @GetMapping("/")
     public String getSplashPage() {
