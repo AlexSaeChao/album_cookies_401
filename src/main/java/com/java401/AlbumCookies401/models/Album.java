@@ -2,6 +2,7 @@ package com.java401.AlbumCookies401.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class Album {
     public String imageURL;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    List<Album> albumList;
+    private List<Song> songs = new ArrayList<>();
 
 //    public Album(String albumTitle, String artist, int songCount, int songLength, String imageURL) {
 //        this.albumTitle = albumTitle;

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 //    @GetMapping("/")
 //    public String getSongs(Model model) {
 //        model.addAttribute("songs", ????)
-//        return "splash.html";
+//        return "song.html";
 //    }
 //}
 //used demo to template out song controller
@@ -26,12 +26,12 @@ public class SongController {
     @Autowired
     AlbumCookiesRepository albumCookiesRepository;
     @Autowired
-    SongRepository songStandRepository;
+    SongRepository songRepository;
 
 
     @PostMapping("/song/add")
-    public RedirectView addSong(String name, Integer songCount, Integer songLength, String trackNumber) {
-        Album album = AlbumCookiesRepository.findByAlbumTitle(albumTitle);
+    public RedirectView addSongToAlbum(String albumTitle, String name, Integer songCount, Integer songLength, String trackNumber) {
+        Album album = albumCookiesRepository.findByAlbumTitle(albumTitle);
 
         if (album == null) {
             throw new IllegalArgumentException("Could not find Song with name " + albumTitle);
